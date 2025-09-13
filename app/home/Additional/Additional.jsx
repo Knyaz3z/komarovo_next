@@ -1,5 +1,6 @@
 import './Additional.scss'
 import AdditionalModal from "@/app/home/Additional/AdditionalModal";
+import Image from "next/image";
 
 
 function Additional() {
@@ -38,7 +39,11 @@ function Additional() {
                 <div className="additional__inner">
                     {additionalArr.map((item, index) => (
                         <div key={index} className="additional__inner-card">
-                            <img src={item.imgLink} alt={item.title}/>
+                            <Image
+                                width={293}
+                                height={195}
+                                src={item.imgLink}
+                                alt={item.title}/>
                             <div className="card__content-additional">
                                 <h3>{item.title}</h3>
                                 <p>{item.desc}</p>
