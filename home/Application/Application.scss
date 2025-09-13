@@ -1,0 +1,274 @@
+@import '@/styles/global.scss';
+
+.application {
+  padding: get-spacing(0) 0;
+  background: linear-gradient(135deg, rgba(get-color(accent-green), 0.1) 0%, rgba(get-color(accent-orange), 0.1) 100%);
+
+  @include tablet {
+    padding: get-spacing(0) 0;
+  }
+
+  @include mobile {
+    padding: get-spacing(0) 0;
+  }
+
+  &__wrapper {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__content {
+    text-align: center;
+    max-width: 500px;
+    width: 100%;
+
+    h2 {
+      font-size: get-font-size(heading-md);
+      color: get-color(headings);
+      margin-bottom: get-spacing(2);
+
+      @include mobile {
+        font-size: get-font-size(heading-sm);
+      }
+    }
+
+    > p {
+      font-size: get-font-size(text-base);
+      color: get-color(text-primary);
+      margin-bottom: get-spacing(6);
+
+      @include mobile {
+        font-size: 0.9rem;
+        margin-bottom: get-spacing(4);
+      }
+    }
+  }
+
+  &__form {
+    margin-bottom: get-spacing(6);
+
+    @include mobile {
+      margin-bottom: get-spacing(4);
+    }
+  }
+
+  .form__group {
+    margin-bottom: get-spacing(4);
+
+    @include mobile {
+      margin-bottom: get-spacing(3);
+    }
+  }
+
+  .form__input {
+    width: 100%;
+    padding: get-spacing(3) get-spacing(4);
+    border: 2px solid get-color(accent-green);
+    border-radius: get-border-radius(base);
+    font-size: get-font-size(text-base);
+    transition: all 0.3s ease;
+
+    &:focus {
+      outline: none;
+      border-color: get-color(accent-orange);
+      box-shadow: 0 0 0 3px rgba(get-color(accent-orange), 0.2);
+    }
+
+    @include mobile {
+      padding: get-spacing(2) get-spacing(3);
+      font-size: 0.9rem;
+    }
+  }
+
+  .form__agreement {
+    margin-bottom: get-spacing(4);
+
+    @include mobile {
+      margin-bottom: get-spacing(3);
+    }
+  }
+
+  .checkbox__label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: get-color(text-primary);
+
+    input[type="checkbox"] {
+      display: none;
+
+      &:checked + .checkbox__custom {
+        background: get-color(accent-green);
+        border-color: get-color(accent-green);
+
+        &::after {
+          opacity: 1;
+        }
+      }
+    }
+
+    @include mobile {
+      font-size: 0.8rem;
+    }
+  }
+
+  .checkbox__custom {
+    width: 20px;
+    height: 20px;
+    border: 2px solid get-color(gray-400);
+    border-radius: get-border-radius(sm);
+    margin-right: get-spacing(2);
+    position: relative;
+    transition: all 0.3s ease;
+
+    &::after {
+      content: '✓';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: get-color(white);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+  }
+
+  .checkbox__text {
+    text-align: left;
+  }
+
+  .form__button {
+    width: 100%;
+
+    &:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+  }
+
+  &__alternative {
+    margin-bottom: get-spacing(6);
+    padding: get-spacing(4);
+    background: get-color(white);
+    border-radius: get-border-radius(base);
+    box-shadow: get-shadow(subtle);
+
+    @include mobile {
+      margin-bottom: get-spacing(4);
+      padding: get-spacing(3);
+    }
+
+    p {
+      font-size: get-font-size(text-base);
+      color: get-color(text-primary);
+      margin-bottom: get-spacing(2);
+
+      @include mobile {
+        font-size: 0.9rem;
+      }
+    }
+  }
+
+  .phone__link {
+    font-size: get-font-size(heading-sm);
+    color: get-color(accent-orange);
+    text-decoration: none;
+    font-weight: $font-weight-medium;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: darken(get-color(accent-orange), 10%);
+    }
+
+    @include mobile {
+      font-size: get-font-size(text-base);
+    }
+  }
+
+  &__social {
+    p {
+      font-size: get-font-size(text-base);
+      color: get-color(text-primary);
+      margin-bottom: get-spacing(3);
+
+      @include mobile {
+        font-size: 0.9rem;
+        margin-bottom: get-spacing(2);
+      }
+    }
+  }
+
+  .social__buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: get-spacing(2);
+
+    @include mobile {
+      grid-template-columns: repeat(2, 1fr);
+      gap: get-spacing(1);
+    }
+  }
+
+  .social__button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: get-spacing(2);
+    background: get-color(white);
+    border-radius: get-border-radius(base);
+    text-decoration: none;
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: get-shadow(medium);
+      border-color: get-color(accent-green);
+    }
+
+    @include mobile {
+      padding: get-spacing(1.5);
+    }
+  }
+
+  .social__icon {
+    font-size: 1.5rem;
+    margin-bottom: get-spacing(1);
+
+    @include mobile {
+      font-size: 1.25rem;
+    }
+  }
+
+  .social__name {
+    font-size: 0.8rem;
+    color: get-color(text-primary);
+    font-weight: $font-weight-medium;
+
+    @include mobile {
+      font-size: 0.7rem;
+    }
+  }
+}
+
+// Анимация появления
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.application__content > * {
+  animation: fadeInUp 0.6s ease forwards;
+
+  &:nth-child(1) { animation-delay: 0.1s; }
+  &:nth-child(2) { animation-delay: 0.2s; }
+  &:nth-child(3) { animation-delay: 0.3s; }
+  &:nth-child(4) { animation-delay: 0.4s; }
+  &:nth-child(5) { animation-delay: 0.5s; }
+}

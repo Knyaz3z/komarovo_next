@@ -1,0 +1,85 @@
+// Footer.scss
+@import "@/styles/global.scss";
+
+.footer {
+  background-color: get-color(headings);
+  color: get-color(text-light);
+  padding: get-spacing(8) 0;
+  box-shadow: get-shadow(subtle);
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: get-spacing(4);
+
+    @include tablet {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+  }
+
+  &__logo {
+    font-family: "Cormorant Garamond", serif;
+    font-size: get-font-size(heading-sm);
+    color: get-color(accent-green);
+    font-weight: $font-weight-medium;
+  }
+
+  &__nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: get-spacing(4);
+
+    a {
+      font-size: get-font-size(text-base);
+      color: get-color(text-light);
+      text-decoration: none;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: get-color(accent-orange);
+      }
+    }
+  }
+
+  &__socials {
+    display: flex;
+    gap: get-spacing(3);
+
+    a {
+      width: 32px;
+      height: 32px;
+      border-radius: get-border-radius(full);
+      background-color: get-color(accent-green);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.3s ease;
+
+      svg {
+        width: 18px;
+        height: 18px;
+        fill: get-color(text-light);
+      }
+
+      &:hover {
+        background-color: get-color(accent-orange);
+      }
+    }
+  }
+
+  &__copy {
+    margin-top: get-spacing(6);
+    font-size: get-font-size(text-base-mobile);
+    text-align: center;
+    opacity: 0.8;
+
+    @include tablet {
+      margin-top: get-spacing(0);
+      text-align: right;
+    }
+  }
+}

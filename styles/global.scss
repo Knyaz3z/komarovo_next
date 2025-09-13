@@ -1,0 +1,291 @@
+// ===== FONTS =====
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../assets/fonts/Montserrat-Light.woff2');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../assets/fonts/Montserrat-Medium.woff2');
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'Cormorant Garamond';
+  src: url("../assets/fonts/CormorantGaramond-Light.woff2");
+}
+
+
+// ===== COLOR PALETTE =====
+$colors: (
+  // Основные цвета из ТЗ
+        background: #FBF5E9,
+        text-primary: #222222,
+        text-light: #fafafa,
+        accent-green: #A8CBB7,
+        accent-orange: #FFA500,
+        headings: #4A533F,
+  // Дополнительные нейтральные цвета
+        white: #FFFFFF,
+        black: #000000,
+  // Оттенки для состояний
+        success: #28A745,
+        error: #DC3545,
+        warning: #FFC107,
+        info: #17A2B8
+);
+
+// ===== TYPOGRAPHY =====
+$font-family-base: 'Montserrat', sans-serif;
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+
+// Размеры шрифтов в rem
+$font-sizes: (
+        text-base-mobile: 1rem, // 16px
+        text-base: 1.25rem, // 20px
+        heading-sm: 1.875rem, // 30px
+        heading-md: 3.125rem, // 50px
+        heading-lg: 4.875rem // 78px
+);
+
+$line-heights: (
+        normal: 1.5,
+        tight: 1.3,
+        relaxed: 1.7
+);
+
+// ===== SPACING =====
+$spacing: (
+        0: 0,
+        1: 0.25rem, // 4px
+        2: 0.5rem, // 8px
+        3: 0.75rem, // 12px
+        4: 1rem, // 16px
+        5: 1.25rem, // 20px
+        6: 1.5rem, // 24px
+        8: 2rem, // 32px
+        10: 2.5rem, // 40px
+        12: 3rem, // 48px
+        16: 4rem, // 64px
+        20: 5rem // 80px
+);
+
+// ===== BREAKPOINTS =====
+$breakpoints: (
+        mobile: 320px,
+        mobile-lg: 480px,
+        tablet: 768px,
+        tablet-lg: 1024px,
+        desktop: 1200px,
+        desktop-lg: 1440px
+);
+
+// ===== BORDERS =====
+$border-radius: (
+        none: 0,
+        sm: 2px,
+        base: 4px,
+        md: 6px,
+        lg: 8px,
+        xl: 12px,
+        '2xl': 16px,
+        full: 50%
+);
+
+$border-widths: (
+        0: 0,
+        1: 1px,
+        2: 2px,
+        3: 3px,
+        4: 4px
+);
+
+// ===== SHADOWS =====
+$shadows: (
+        subtle: 0 4px 4px rgba(0, 0, 0, 0.1),
+        medium: 4px 4px 8px rgba(0, 0, 0, 0.15),
+        large: 0 8px 16px rgba(0, 0, 0, 0.2)
+);
+
+// ===== Z-INDEX =====
+$z-index: (
+        base: 1,
+        dropdown: 100,
+        sticky: 200,
+        modal: 1000,
+        tooltip: 2000
+);
+
+// ===== CONTAINERS =====
+$container-max-width: 1270px;
+$container-padding: 1.5rem; // 24px
+
+// ===== MIXINS =====
+// Mobile first
+@mixin mobile {
+  @media (max-width: #{map-get($breakpoints, tablet) - 1px}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: map-get($breakpoints, tablet)) and (max-width: #{map-get($breakpoints, desktop) - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: map-get($breakpoints, desktop)) {
+    @content;
+  }
+}
+
+// Orientation
+@mixin landscape {
+  @media (orientation: landscape) {
+    @content;
+  }
+}
+
+@mixin portrait {
+  @media (orientation: portrait) {
+    @content;
+  }
+}
+
+// ===== HELPER FUNCTIONS =====
+@function get-color($key) {
+  @return map-get($colors, $key);
+}
+
+@function get-spacing($key) {
+  @return map-get($spacing, $key);
+}
+
+@function get-font-size($key) {
+  @return map-get($font-sizes, $key);
+}
+
+@function get-border-radius($key) {
+  @return map-get($border-radius, $key);
+}
+
+@function get-shadow($key) {
+  @return map-get($shadows, $key);
+}
+
+// ===== GLOBAL STYLES =====
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px; // Базовый размер для rem
+}
+
+body {
+  font-family: $font-family-base;
+  font-weight: $font-weight-normal;
+  font-size: get-font-size(text-base);
+  line-height: map-get($line-heights, normal);
+  color: get-color(text-primary);
+  background-color: get-color(background);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: get-font-size(heading-lg);
+  color: get-color(headings);
+  font-weight: 200;
+  text-align: center;
+  line-height: 1;
+  margin-top: get-spacing(10);
+}
+
+h2, h3, h4 {
+  font-size: get-font-size(heading-md);
+}
+
+// Responsive container
+.container {
+  width: 100%;
+  max-width: $container-max-width;
+  margin: 0 auto;
+  padding: 0 $container-padding;
+
+  @include mobile {
+    padding: 0 get-spacing(4);
+  }
+}
+
+// ===== UTILITY CLASSES =====
+.text-light {
+  color: get-color(text-light);
+}
+
+.text-primary {
+  color: get-color(text-primary);
+}
+
+.bg-accent-green {
+  background-color: get-color(accent-green);
+}
+
+.bg-accent-orange {
+  background-color: get-color(accent-orange);
+}
+
+.heading-color {
+  color: get-color(headings);
+}
+
+// Responsive text classes
+.text-base {
+  font-size: get-font-size(text-base);
+
+  @include mobile {
+    font-size: 1.125rem; // 18px на мобильных
+  }
+}
+
+.heading-sm {
+  font-size: get-font-size(heading-sm);
+  font-weight: $font-weight-medium;
+  color: get-color(headings);
+
+  @include mobile {
+    font-size: 1.5rem; // 24px на мобильных
+  }
+}
+
+.heading-md {
+  font-size: get-font-size(heading-md);
+  font-weight: $font-weight-medium;
+  color: get-color(headings);
+  line-height: map-get($line-heights, tight);
+
+  @include mobile {
+    font-size: 2rem; // 32px на мобильных
+  }
+}
+
+.heading-lg {
+  font-size: get-font-size(heading-lg);
+  font-weight: $font-weight-medium;
+  color: get-color(headings);
+  line-height: map-get($line-heights, tight);
+
+  @include mobile {
+    font-size: 2.5rem; // 40px на мобильных
+  }
+
+  @include tablet {
+    font-size: 3.5rem; // 56px на планшетах
+  }
+}

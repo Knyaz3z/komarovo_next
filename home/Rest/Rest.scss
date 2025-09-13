@@ -1,0 +1,116 @@
+@import '@/styles/global.scss';
+
+.rest {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  h2 {
+    margin-top: get-spacing(5);
+    font-size: get-font-size(heading-md);
+    font-weight: $font-weight-medium;
+    color: get-color(headings);
+    line-height: map-get($line-heights, tight);
+    text-wrap: balance;
+
+    @include tablet {
+      font-size: get-font-size(heading-sm);
+      margin-bottom: get-spacing(6);
+    }
+
+    @include mobile {
+      font-size: get-font-size(text-base);
+      margin-bottom: get-spacing(2);
+      padding: get-spacing(0) get-spacing(2);
+      line-height: map-get($line-heights, normal);
+    }
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+    box-shadow: get-shadow(large);
+    transition: all 0.4s ease;
+
+    &:hover {
+      transform: scale(1.02);
+      box-shadow: get-shadow(xl);
+    }
+
+    @include tablet {
+      max-width: 100%;
+    }
+
+    @include mobile {
+      max-width: 100%;
+
+      &:hover {
+        transform: scale(1.01);
+      }
+    }
+  }
+}
+
+// Вариант с обводкой (опционально)
+.rest--with-border {
+  border: 3px solid get-color(accent-green);
+  border-radius: get-border-radius('2xl');
+  margin: get-spacing(6);
+  padding: get-spacing(10) get-spacing(6);
+
+  @include tablet {
+    margin: get-spacing(4);
+    padding: get-spacing(8) get-spacing(4);
+    border-width: 2px;
+  }
+
+  @include mobile {
+    margin: get-spacing(2);
+    padding: get-spacing(6) get-spacing(3);
+    border-width: 1px;
+    border-radius: get-border-radius(xl);
+  }
+}
+
+// Вариант с фоном (опционально)
+.rest--with-bg {
+  background: linear-gradient(135deg, get-color(accent-green) 0%, get-color(accent-orange) 100%);
+
+  h2 {
+    color: get-color(text-light);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  img {
+    border: 3px solid get-color(white);
+
+    @include mobile {
+      border-width: 2px;
+    }
+  }
+}
+
+// Анимация появления
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.rest {
+  animation: slideInUp 0.8s ease-out;
+
+  h2 {
+    animation: slideInUp 0.8s ease-out 0.2s both;
+  }
+
+  img {
+    animation: slideInUp 0.8s ease-out 0.4s both;
+  }
+}

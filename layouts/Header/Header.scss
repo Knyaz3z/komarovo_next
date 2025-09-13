@@ -1,0 +1,208 @@
+@import '@/styles/global.scss';
+
+.header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+  padding: get-spacing(4) 0;
+
+  @include mobile {
+    justify-content: space-between;
+    padding: get-spacing(3) get-spacing(4);
+  }
+
+  &__logo {
+    width: 140px;
+    height: auto;
+
+    @include tablet {
+      width: 120px;
+    }
+
+    @include mobile {
+      width: 100px;
+    }
+  }
+
+  .nav {
+    &__list {
+      display: flex;
+      gap: get-spacing(8);
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      @include tablet {
+        gap: get-spacing(6);
+      }
+    }
+
+    &__item {
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: translateY(-2px);
+      }
+    }
+
+    &__link {
+      color: get-color(text-primary);
+      text-decoration: none;
+      font-weight: $font-weight-normal;
+      font-size: get-font-size(text-base);
+      transition: all 0.3s ease;
+      position: relative;
+      padding: get-spacing(2) get-spacing(3);
+      border-radius: get-border-radius(base);
+
+      &:hover {
+        color: get-color(accent-orange);
+        background: rgba(get-color(accent-orange), 0.1);
+      }
+    }
+
+    // Мобильная версия
+    @include mobile {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 280px;
+      height: 100vh;
+      background: get-color(background);
+      box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
+      transition: right 0.4s ease;
+      padding: 80px get-spacing(6) get-spacing(6);
+      overflow-y: auto;
+
+      &--open {
+        right: 0;
+        z-index: 3;
+      }
+
+      &__list {
+        flex-direction: column;
+        gap: 0;
+        text-align: left;
+      }
+
+      &__item {
+        border-bottom: 1px solid rgba(get-color(text-primary), 0.1);
+
+        &:last-child {
+          border-bottom: none;
+        }
+
+        &:hover {
+          transform: none;
+        }
+      }
+
+      &__link {
+        display: block;
+        padding: get-spacing(4) get-spacing(3);
+        font-size: get-font-size(text-base);
+        border-radius: get-border-radius(base);
+        transition: all 0.3s ease;
+
+        &:hover {
+          background: get-color(accent-green);
+          color: get-color(text-light);
+          transform: translateX(8px);
+        }
+      }
+    }
+  }
+
+  .burger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 32px;
+    height: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    position: relative;
+
+    span {
+      display: block;
+      height: 3px;
+      width: 100%;
+      background: get-color(text-primary);
+      transition: all 0.4s ease;
+      transform-origin: center;
+      border-radius: 2px;
+    }
+
+    // Анимация бургера при открытии
+    &--open {
+      z-index: 3;
+      span:nth-child(1) {
+        transform: rotate(45deg) translate(7px, 8px);
+        background: get-color(accent-orange);
+      }
+
+      span:nth-child(2) {
+        opacity: 0;
+      }
+
+      span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -8px);
+        background: get-color(accent-orange);
+      }
+
+      &:hover {
+        span {
+          background: get-color(accent-green);
+        }
+      }
+    }
+
+    &:hover {
+      span {
+        background: get-color(accent-orange);
+      }
+    }
+
+    @include mobile {
+      display: flex;
+    }
+  }
+}
+
+.menu-overlay {
+  display: none;
+
+  @include mobile {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease;
+    z-index: 2;
+
+    &--visible {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}
+
+// Планшетная версия
+@include tablet {
+  .header {
+    .nav {
+      &__link {
+        font-size: 0.95rem;
+        padding: get-spacing(1) get-spacing(2);
+      }
+    }
+  }
+}

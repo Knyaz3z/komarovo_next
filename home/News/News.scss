@@ -1,0 +1,151 @@
+@import "@/styles/global.scss";
+
+.news {
+  padding: get-spacing(8) 0;
+
+  @include tablet {
+    padding: get-spacing(6) 0;
+  }
+
+  @include mobile {
+    padding: get-spacing(4) 0;
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: get-spacing(6);
+
+    @include mobile {
+      gap: get-spacing(4);
+    }
+
+    .news__card {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: get-spacing(5);
+      box-shadow: get-shadow(medium);
+      border-radius: get-border-radius(xl);
+      padding: 0 get-spacing(5) 0 0;
+
+      @include tablet {
+        gap: get-spacing(4);
+        padding: 0 get-spacing(4) 0 0;
+      }
+
+      @include mobile {
+        flex-direction: column;
+        gap: get-spacing(3);
+        padding: 0;
+        text-align: center;
+      }
+
+      img {
+        border-radius: get-border-radius(xl);
+        height: 300px;
+        width: 400px;
+        object-fit: cover;
+
+        @include tablet {
+          height: 250px;
+          width: 300px;
+        }
+
+        @include mobile {
+          width: 100%;
+          height: 200px;
+          border-radius: get-border-radius(xl) get-border-radius(xl) 0 0;
+        }
+      }
+
+      &-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: end;
+        padding: get-spacing(4) 0;
+        flex: 1;
+
+        @include tablet {
+          padding: get-spacing(3) 0;
+        }
+
+        @include mobile {
+          align-items: center;
+          padding: get-spacing(3);
+          width: 100%;
+        }
+
+        h3 {
+          font-size: get-font-size(heading-sm);
+          color: get-color(headings);
+          margin: 0 0 get-spacing(3) 0;
+          align-self: start;
+          line-height: map-get($line-heights, tight);
+
+          @include tablet {
+            font-size: get-font-size(text-base);
+            margin-bottom: get-spacing(2);
+          }
+
+          @include mobile {
+            font-size: get-font-size(text-base);
+            text-align: center;
+            align-self: center;
+            margin-bottom: get-spacing(2);
+          }
+        }
+
+        p {
+          font-size: get-font-size(text-base);
+          color: get-color(text-primary);
+          line-height: map-get($line-heights, relaxed);
+          margin: 0 0 get-spacing(4) 0;
+          display: -webkit-box;
+          -webkit-line-clamp: 3;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+          text-align: left;
+
+          @include tablet {
+            font-size: 0.9rem;
+            margin-bottom: get-spacing(3);
+            -webkit-line-clamp: 4;
+          }
+
+          @include mobile {
+            font-size: 0.9rem;
+            text-align: center;
+            margin-bottom: get-spacing(3);
+            -webkit-line-clamp: 5;
+          }
+        }
+
+        // Стили для кнопки
+        .btn {
+          align-self: flex-end;
+
+          @include mobile {
+            align-self: center;
+          }
+        }
+      }
+
+    }
+  }
+}
+
+// Добавляем дату
+.news__date {
+  font-size: 0.9rem;
+  color: get-color(gray-600);
+  margin-bottom: get-spacing(2);
+  align-self: flex-start;
+
+  @include mobile {
+    align-self: center;
+    font-size: 0.8rem;
+  }
+}
+

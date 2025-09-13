@@ -1,0 +1,70 @@
+@import "@/styles/global.scss";
+
+.contacts {
+
+
+  &__title {
+    padding-bottom: get-spacing(5);
+    margin-top: 0;
+  }
+
+  &__info {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  &__phone {
+    font-size: 20px;
+    margin-bottom: 20px;
+
+    a {
+      color: #222;
+      font-weight: 600;
+      text-decoration: none;
+
+      &:hover {
+        color: get-color(accent-orange);
+      }
+    }
+  }
+
+  &__socials {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+
+    a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 10px 16px;
+      font-size: 16px;
+      color: #333;
+      text-decoration: none;
+      transition: all 0.3s ease;
+
+      svg {
+        font-size: 20px;
+      }
+
+      &:hover {
+        background: get-color(accent-orange);
+        color: #fff;
+        border-color: get-color(accent-orange);
+      }
+    }
+  }
+
+  &__map {
+    margin-top: 40px;
+
+    iframe {
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+  }
+}

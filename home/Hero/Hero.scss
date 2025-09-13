@@ -1,0 +1,173 @@
+@import '@/styles/global.scss';
+
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: get-spacing(8) get-spacing(4);
+
+  @include mobile {
+    padding: get-spacing(4) get-spacing(3);
+  }
+
+  & button {
+    opacity: 0; // важно!
+    transform: translateY(40px);
+    animation: slideUp 0.8s ease forwards;
+    animation-delay: 0.5s;
+  }
+  &__head {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin-top: get-spacing(8);
+    font-size: get-font-size(heading-lg);
+    font-weight: $font-weight-medium;
+    color: get-color(headings);
+    line-height: map-get($line-heights, tight);
+    max-width: 1200px;
+    padding: 0 get-spacing(4);
+    opacity: 0; // важно!
+    transform: translateY(40px); // чтобы не мигала
+    animation: slideUp 0.8s ease forwards;
+    animation-delay: 0.2s;
+
+    & span{
+      display: block; /* чтобы выглядело как подзаголовок */
+      font-size: get-font-size(heading-sm);
+      padding-bottom: get-spacing(5);
+      font-weight: 400;
+      color: get-color(headings);
+    }
+
+    @include tablet {
+      font-size: get-font-size(heading-md);
+      margin-top: get-spacing(6);
+      padding: 0 get-spacing(3);
+    }
+
+    @include mobile {
+      font-size: get-font-size(heading-sm);
+      margin-top: get-spacing(4);
+      padding: 0 get-spacing(2);
+      line-height: map-get($line-heights, normal);
+    }
+  }
+
+  &__images {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: get-spacing(6);
+    max-width: 1792px;
+    margin-top: get-spacing(12);
+    padding: 0 get-spacing(4);
+    width: 100%;
+
+
+    @include tablet {
+      grid-template-columns: repeat(2, 1fr);
+      gap: get-spacing(5);
+      margin-top: get-spacing(8);
+      padding: 0 get-spacing(3);
+    }
+
+    @include mobile {
+      grid-template-columns: 1fr;
+      gap: get-spacing(4);
+      margin-top: get-spacing(6);
+      padding: 0 get-spacing(2);
+
+
+    }
+  }
+
+  &__item {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    border-radius: get-border-radius('2xl');
+    transition: all 0.4s ease;
+    box-shadow: get-shadow(medium);
+
+    &:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: get-shadow(large);
+    }
+
+    @include tablet {
+      height: 250px;
+
+      &:hover {
+        transform: translateY(-5px) scale(1.02);
+      }
+    }
+
+    @include mobile {
+      height: 200px;
+      border-radius: get-border-radius(xl);
+
+      &:hover {
+        transform: translateY(-3px) scale(1.01);
+      }
+
+      &:nth-child(3){
+        display: none;
+      }
+      &:nth-child(4){
+        display: none;
+      }
+    }
+
+    // Альтернативная высота для мобильных в альбомной ориентации
+    @include landscape {
+      @include mobile {
+        height: 180px;
+      }
+    }
+  }
+}
+
+// Плавное появление изображений
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero__item {
+  opacity: 0; // важно!
+  animation: fadeInUp 0.8s ease forwards;
+
+  &:nth-child(1) { animation-delay: 0.2s; }
+  &:nth-child(2) { animation-delay: 0.4s; }
+  &:nth-child(3) { animation-delay: 0.6s; }
+  &:nth-child(4) { animation-delay: 0.8s; }
+
+  @include mobile {
+    animation-duration: 0.6s;
+
+    &:nth-child(1) { animation-delay: 0.05s; }
+    &:nth-child(2) { animation-delay: 0.1s; }
+    &:nth-child(3) { animation-delay: 0.15s; }
+    &:nth-child(4) { animation-delay: 0.2s; }
+  }
+}
+

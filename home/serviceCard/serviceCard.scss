@@ -1,0 +1,115 @@
+@import "@/styles/global.scss";
+
+.services {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2em;
+  justify-items: center;
+
+  &__wrapper {
+    margin-top: get-spacing(5)
+  }
+
+
+  @include tablet {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    justify-items: end;
+  }
+
+  @include mobile {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+.card {
+  @include tablet {
+    &:nth-child(2) {
+      justify-self: start;
+    }
+    &:nth-child(4) {
+      justify-self: start;
+    }
+  }
+  height: 400px;
+  cursor: pointer;
+  position: relative;
+  //margin: 5em 0;
+  box-shadow: get-shadow(medium);
+  border-radius: get-border-radius(xl);
+  max-width: 300px;
+
+
+  &__image {
+    position: relative;
+
+    img {
+      height: 400px;
+      //width: 300px;
+      object-fit: cover;
+      position: relative;
+      filter: brightness(50%); /* Затемнение изображения */
+      border-radius: get-border-radius(xl);
+      transition: all .5s ease;
+    }
+
+    .card__title {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      line-height: .8;
+      font-size: get-font-size(heading-sm);
+      color: get-color(text-light);
+    }
+
+    &.hovered {
+      img {
+        height: 200px;
+      }
+    }
+
+
+  }
+
+  &__content {
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    padding: 1em 0;
+    font-size: get-font-size(text-base-mobile);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2em;
+    width: 90%;
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: .25rem;
+      opacity: 0;
+      transition: all 1s ease;
+      transform: translateY(20px);
+
+    }
+
+    &.hovered {
+
+      ul {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+    }
+
+    button {
+      max-width: 80%;
+    }
+  }
+
+
+}

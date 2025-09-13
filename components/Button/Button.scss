@@ -1,0 +1,184 @@
+@import '@/styles/global.scss';
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: get-border-radius(base);
+  font-family: $font-family-base;
+  font-weight: $font-weight-normal;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  line-height: 1.5;
+  position: relative;
+  overflow: hidden;
+
+  // Убираем стандартные стили
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(get-color(accent-orange), 0.3);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none !important;
+  }
+
+  // Варианты кнопок
+  &--primary {
+    background: get-color(accent-green);
+    color: get-color(text-light);
+
+    &:hover:not(:disabled) {
+      background: darken(get-color(accent-green), 10%);
+      transform: translateY(-2px);
+      box-shadow: get-shadow(medium);
+    }
+
+    &:active:not(:disabled) {
+      transform: translateY(0);
+    }
+  }
+
+  &--secondary {
+    background: get-color(accent-orange);
+    color: get-color(text-light);
+
+    &:hover:not(:disabled) {
+      background: darken(get-color(accent-orange), 10%);
+      transform: translateY(-2px);
+      box-shadow: get-shadow(medium);
+    }
+
+    &:active:not(:disabled) {
+      transform: translateY(0);
+    }
+  }
+
+  &--outline {
+    background: transparent;
+    color: get-color(accent-green);
+    border: 2px solid get-color(accent-green);
+
+    &:hover:not(:disabled) {
+      background: get-color(accent-green);
+      color: get-color(text-light);
+      transform: translateY(-2px);
+      box-shadow: get-shadow(medium);
+    }
+
+    &:active:not(:disabled) {
+      transform: translateY(0);
+    }
+  }
+
+  // Размеры кнопок
+  &--small {
+    padding: get-spacing(2) get-spacing(4);
+    font-size: get-font-size(text-base);
+
+    @include mobile {
+      padding: get-spacing(1.5) get-spacing(3);
+      font-size: 0.9rem;
+    }
+  }
+
+  &--medium {
+    padding: get-spacing(3) get-spacing(6);
+    font-size: get-font-size(text-base);
+
+    @include mobile {
+      padding: get-spacing(2) get-spacing(4);
+      font-size: get-font-size(text-base);
+    }
+  }
+
+  &--large {
+    padding: get-spacing(4) get-spacing(8);
+    font-size: get-font-size(text-base);
+
+    @include mobile {
+      padding: get-spacing(3) get-spacing(6);
+      font-size: get-font-size(text-base);
+    }
+  }
+
+  // Анимация при наведении
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(get-color(white), 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+  }
+
+  &:hover:not(:disabled)::after {
+    width: 300px;
+    height: 300px;
+  }
+
+  // Иконка рядом с текстом (опционально)
+  &.btn--with-icon {
+    gap: get-spacing(2);
+
+    .btn__icon {
+      width: 20px;
+      height: 20px;
+      transition: transform 0.3s ease;
+    }
+
+    &:hover:not(:disabled) {
+      .btn__icon {
+        transform: translateX(4px);
+      }
+    }
+  }
+}
+
+// Вариант полной ширины
+.btn--full-width {
+  width: 100%;
+}
+
+// Адаптивность
+@include mobile {
+  .btn {
+    &--small, &--medium, &--large {
+      font-size: 0.9rem;
+    }
+  }
+}
+
+// Анимация загрузки
+.btn--loading {
+  position: relative;
+  color: transparent !important;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top: 2px solid get-color(white);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
