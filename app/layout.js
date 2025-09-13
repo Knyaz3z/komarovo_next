@@ -18,7 +18,19 @@ export const metadata = {
     template: '%s | Усадьба Комарово'
   },
   description: 'Баня на дровах, гидромассажный бассейн, мангал, банкетный зал и услуги банщика. Идеально для семей, пар и компаний друзей в Витебске.',
-
+  icons: {
+    icon: [
+      {url: '/favicon.ico', sizes: 'any'},
+      {url: '/icons/icon-16x16.png', type: 'image/png', sizes: '16x16'},
+      {url: '/icons/icon-32x32.png', type: 'image/png', sizes: '32x32'},
+    ],
+    apple: [
+      {url: '/icons/apple-touch-icon.png', sizes: '180x180', type: 'image/png'},
+    ],
+    other: [
+      {rel: 'manifest', url: '/manifest.json'},
+    ],
+  },
   keywords: [
     'банный комплекс Витебск',
     'баня на дровах',
