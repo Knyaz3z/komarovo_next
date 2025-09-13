@@ -1,5 +1,8 @@
 import './Hero.scss';
 import CTA from "@/components/CTA/CTA";
+import Image from "next/image";
+import dynamic from "next/dynamic";
+const CTA = dynamic(() => import("@/components/CTA/CTA"), { ssr: false });
 
 export default function Hero() {
     return (
@@ -12,10 +15,30 @@ export default function Hero() {
             {/* Кнопка и модалка */}
             <CTA/>
             <div className="hero__images">
-                <img src="/hero_image_1.webp" alt="" className="hero__item"/>
-                <img src="/hero_image_2.webp" alt="" className="hero__item"/>
-                <img src="/hero_image_3.webp" alt="" className="hero__item"/>
-                <img src="/hero_image_4.webp" alt="" className="hero__item"/>
+                <Image
+                    className={"hero__item"}
+                    width={380}
+                    height={500}
+                    src={"/hero_image_1.webp"}
+                    alt={"Усадьба Комарово фото"}/>
+                <Image
+                    className={"hero__item"}
+                    width={380}
+                    height={500}
+                    src={"/hero_image_2.webp"}
+                    alt={"Усадьба Комарово фото"}/>
+                <Image
+                    className={"hero__item"}
+                    width={380}
+                    height={500}
+                    src={"/hero_image_3.webp"}
+                    alt={"Усадьба Комарово фото"}/>
+                <Image
+                    className={"hero__item"}
+                    width={380}
+                    height={500}
+                    src={"/hero_image_4.webp"}
+                    alt={"Усадьба Комарово фото"}/>
             </div>
         </div>
     )
