@@ -1,5 +1,6 @@
 import './News.scss'
 import Button from "@/components/Button/Button";
+import Image from "next/image";
 
 function News() {
 
@@ -39,7 +40,13 @@ function News() {
             <div className="news__wrapper container">
                 {newsArr.map(({title, desc, imgLink, date, id}) => (
                     <div key={id} className='news__card'>
-                        <img src={imgLink} alt={title}/>
+                        <Image
+                            width={400}
+                            height={300}
+                            src={imgLink}
+                            alt={title}
+                        />
+
                         <div className="news__card-content">
                             <span className="news__date">{date}</span>
                             <h3>{title}</h3>
