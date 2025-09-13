@@ -2,6 +2,8 @@
 import './Prices.scss'
 import {useState} from "react";
 import Button from "@/components/Button/Button";
+import Modal from "@/components/Modal/Modal";
+import ApplicationForm from "@/components/ApplicationForm/ApplicationForm";
 
 function Prices() {
 
@@ -66,8 +68,17 @@ function Prices() {
 
     const activeItem = pricesArr.find(item => item.id === activePage)
 
+    const [isOpen, setIsOpen] = useState(false);
+    const [success, setSuccess] = useState(false);
     return (
         <div className="prices">
+            <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
+                {success ? (
+                    <p>Заявка успешно отправлена!</p>
+                ) : (
+                    <ApplicationForm onSuccess={() => setSuccess(true)} />
+                )}
+            </Modal>
             <div className="bg"></div>
             <div className="prices__wrapper container">
 
@@ -103,8 +114,8 @@ function Prices() {
                         </ul>
                         <p className="prices__price">{activeItem.price} Br / час</p>
                         <div className="prices__buttons">
-                            <Button>Забронировать</Button>
-                            <Button variant={'secondary'}>Есть вопрос?</Button>
+                            <Button onClick={() => setIsOpen(true)}>Забронировать</Button>
+                            <Button onClick={() => setIsOpen(true)} variant={'secondary'}>Есть вопрос?</Button>
                         </div>
                     </div>
                 </div>

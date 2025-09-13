@@ -1,4 +1,4 @@
-@import '@/styles/global.scss';
+@import '@/styles/global';
 
 .rest {
   display: flex;
@@ -6,12 +6,11 @@
   align-items: center;
   text-align: center;
 
+
   h2 {
     margin-top: get-spacing(5);
     font-size: get-font-size(heading-md);
-    font-weight: $font-weight-medium;
     color: get-color(headings);
-    line-height: map-get($line-heights, tight);
     text-wrap: balance;
 
     @include tablet {
@@ -23,7 +22,6 @@
       font-size: get-font-size(text-base);
       margin-bottom: get-spacing(2);
       padding: get-spacing(0) get-spacing(2);
-      line-height: map-get($line-heights, normal);
     }
   }
 

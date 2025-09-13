@@ -1,8 +1,8 @@
 import './Additional.scss'
-import Button from "@/components/Button/Button";
+import AdditionalModal from "@/app/home/Additional/AdditionalModal";
+
 
 function Additional() {
-
     const additionalArr = [
         {
             title: 'Услуги банщика',
@@ -24,7 +24,7 @@ function Additional() {
             desc: 'Натуральные масла и травы создают неповторимый аромат в парной и благотворно влияют на здоровье.',
             imgLink: '/additional_image_4.png',
         },
-    ]
+    ];
 
     return (
         <div className='additional'>
@@ -36,24 +36,21 @@ function Additional() {
                 </p>
 
                 <div className="additional__inner">
-                    {
-                        additionalArr.map((item, index)=>(
-                            <div key={index} className="additional__inner-card">
-                                <img src={item.imgLink} alt=""/>
-                                <div className="card__content-additional">
-                                    <h3>{item.title}</h3>
-                                    <p>{item.desc}</p>
-                                    <Button>Подробнее</Button>
-                                </div>
-
+                    {additionalArr.map((item, index) => (
+                        <div key={index} className="additional__inner-card">
+                            <img src={item.imgLink} alt={item.title}/>
+                            <div className="card__content-additional">
+                                <h3>{item.title}</h3>
+                                <p>{item.desc}</p>
+                                {/* Вставляем клиентскую модалку */}
+                                <AdditionalModal item={item}/>
                             </div>
-                        ))
-                    }
-
+                        </div>
+                    ))}
                 </div>
             </div>
         </div>
-    )
+    );
 }
 
-export default Additional
+export default Additional;

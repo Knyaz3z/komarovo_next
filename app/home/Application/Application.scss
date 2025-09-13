@@ -1,8 +1,10 @@
-@import '@/styles/global.scss';
+@import '@/styles/global';
 
 .application {
-  padding: get-spacing(0) 0;
+  padding-bottom: get-spacing(5);
   background: linear-gradient(135deg, rgba(get-color(accent-green), 0.1) 0%, rgba(get-color(accent-orange), 0.1) 100%);
+
+  &__wrapper{padding-bottom: get-spacing(5);}
 
   @include tablet {
     padding: get-spacing(0) 0;
@@ -187,6 +189,7 @@
   }
 
   &__social {
+    padding-bottom: get-spacing(5);
     p {
       font-size: get-font-size(text-base);
       color: get-color(text-primary);
