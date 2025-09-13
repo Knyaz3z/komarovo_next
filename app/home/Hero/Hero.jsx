@@ -2,7 +2,6 @@ import './Hero.scss';
 import CTA from "@/components/CTA/CTA";
 import Image from "next/image";
 import dynamic from "next/dynamic";
-const CTA = dynamic(() => import("@/components/CTA/CTA"), { ssr: false });
 
 export default function Hero() {
     return (
