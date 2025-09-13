@@ -1,14 +1,7 @@
-import {Geist, Geist_Mono} from "next/font/google";
+import { Montserrat, Cormorant_Garamond } from 'next/font/google';
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+export const montserrat = Montserrat({ subsets: ['latin'], weight: ['400','500'], variable: '--font-montserrat' });
+export const cormorant = Cormorant_Garamond({ subsets: ['latin'], weight: ['400'], variable: '--font-cormorant' });
 
 
 export const metadata = {
@@ -63,12 +56,10 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-    <head>
-      <link rel="icon" href="/favicon.ico" sizes="any" />
-    </head>
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        {children}
+      <html lang="ru">
+      <body className={`${montserrat.variable} ${cormorant.variable}`}>
+
+      {children}
       </body>
     </html>
   );
