@@ -8,7 +8,7 @@ export default function Hero() {
         <div className='hero'>
             <h1 className='hero__head'>
                 УСАДЬБА КОМАРОВО В ВИТЕБСКЕ
-                <span>Русская баня на дровах, джакузи и отдых на природе</span>
+                <span>Русская баня на дровах и отдых на природе</span>
             </h1>
 
             {/* Кнопка и модалка */}
