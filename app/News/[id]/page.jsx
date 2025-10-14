@@ -1,12 +1,8 @@
 // app/news/[id]/page.jsx
 import './NewsItem.scss';
-import Link from 'next/link';
-import Header from "@/layouts/Header/Header";
-import Footer from "@/layouts/Footer/Footer";
-import './NewsItem.scss'
-import Button from "@/components/Button/Button";
+import Button from '@/components/Button/Button';
 
-import newsArr from "@/app/News/data";
+import newsArr from '@/app/News/data';
 
 export async function generateMetadata({ params }) {
     const news = newsArr.find((n) => n.id === params.id);
@@ -44,7 +40,6 @@ export default function NewsItem({ params }) {
 
     return (
         <>
-            <Header />
             <div className="news-item container">
                 <h1>{news.title}</h1>
                 <span>{news.date}</span>
@@ -52,7 +47,6 @@ export default function NewsItem({ params }) {
                 <p>{news.fullText}</p>
                 <Button isLink href="/News" className="back-button">← Все новости</Button>
             </div>
-            <Footer />
         </>
     );
 }

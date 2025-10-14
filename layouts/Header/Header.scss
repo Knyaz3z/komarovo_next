@@ -1,10 +1,15 @@
 @import '@/styles/global.scss';
 
 .header {
+
   display: flex;
   justify-content: space-around;
   align-items: center;
   position: relative;
+  position: fixed;
+  background-color: get-color(background);
+  width: 100%;
+  z-index: 100;
   padding: get-spacing(4) 0;
 
   @include mobile {

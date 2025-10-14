@@ -1,10 +1,10 @@
 import './About.scss'
-import Image from "next/image";
+import Image from 'next/image';
 
 function About() {
 
     return (
-        <div className='about'>
+        <div className='about' id={'about'}>
             <div className="about__wrapper container">
                 <h2>О банном комплексе "Усадьба Комарово"</h2>
                 <div className="about__content">
@@ -38,7 +38,7 @@ function About() {
                     <Image
                         width={628}
                         height={510}
-                        src={"/about_photo.webp"}
+                        src={"/about_photo_2.webp"}
                         alt={"Фото усадьбы Комарово"}/>
 
                 </div>

@@ -5,7 +5,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding: get-spacing(8) get-spacing(4);
+  padding: get-spacing(20) get-spacing(4);
 
   @include mobile {
     padding: get-spacing(4) get-spacing(3);

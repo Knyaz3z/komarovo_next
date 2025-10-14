@@ -1,16 +1,12 @@
-
 import '@/styles/null.scss'
 import '@/styles/global.scss'
 import './News.scss';
-import newsArr from "@/app/News/data";
-import Header from "@/layouts/Header/Header";
-import Footer from "@/layouts/Footer/Footer";
-import Button from "@/components/Button/Button";
+import newsArr from '@/app/News/data';
+import Button from '@/components/Button/Button';
 
 export default function NewsPage() {
     return (
         <>
-            <Header/>
             <div className="news-page container">
                 <h1>Новости комплекса Усадьба Комарово</h1>
                 <div className="news__list">
@@ -27,7 +23,6 @@ export default function NewsPage() {
                     ))}
                 </div>
             </div>
-            <Footer/>
         </>
 
     );

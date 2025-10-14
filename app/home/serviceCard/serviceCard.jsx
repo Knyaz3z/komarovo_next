@@ -1,9 +1,9 @@
 'use client';
 import './serviceCard.scss';
-import { useState } from "react";
-import Button from "@/components/Button/Button";
-import Modal from "@/components/Modal/Modal";
-import CTA from "@/components/CTA/CTA";
+import {useState} from 'react';
+import Button from '@/components/Button/Button';
+import Modal from '@/components/Modal/Modal';
+import CTA from '@/components/CTA/CTA';
 
 function ServiceCard() {
     const servicesArr = [
@@ -58,6 +58,7 @@ function CardItem({ service }) {
     return (
         <div
             className={`card ${isHovered ? 'hovered' : ''}`}
+            id={'services'}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
         >
