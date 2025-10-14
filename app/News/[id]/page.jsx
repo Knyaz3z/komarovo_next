@@ -44,7 +44,7 @@ export default function NewsItem({ params }) {
                 <h1>{news.title}</h1>
                 <span>{news.date}</span>
                 <img src={news.imgLink} alt={news.title} />
-                <p>{news.fullText}</p>
+                <p dangerouslySetInnerHTML={{ __html: news.fullText }}></p>
                 <Button isLink href="/News" className="back-button">← Все новости</Button>
             </div>
         </>

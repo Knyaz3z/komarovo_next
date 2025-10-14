@@ -1,6 +1,6 @@
 import './News.scss'
-import Button from "@/components/Button/Button";
-import Image from "next/image";
+import Button from '@/components/Button/Button';
+import Image from 'next/image';
 
 function News() {
 
@@ -23,7 +23,7 @@ function News() {
             id:'3',
             title:'Новая веранда с грилем: больше места для тёплых встреч',
             desc:'Мы запустили просторную веранду с газовым грилем — идеальное место для дня рождения, встречи с друзьями или семейного ужина. Рассказываем о вместимости, оборудовании, правилах бронирования и о том, как мы помогаем с кейтерингом под ваш формат мероприятия.',
-            imgLink:'/news_3.png',
+            imgLink:'/prices/3/prices_photo_3.webp',
             date:'1 июля 2025',
         },
         {
