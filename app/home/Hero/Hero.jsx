@@ -1,44 +1,55 @@
-import './Hero.scss';
-import CTA from "@/components/CTA/CTA";
-import Image from "next/image";
-import dynamic from "next/dynamic";
+import './Hero.scss'
+import CTA from "@/components/CTA/CTA"
+import Image from "next/image"
 
 export default function Hero() {
     return (
-        <div className='hero'>
+        <section className='hero'>
             <h1 className='hero__head'>
                 УСАДЬБА КОМАРОВО В ВИТЕБСКЕ
                 <span>Русская баня на дровах и отдых на природе</span>
             </h1>
 
-            {/* Кнопка и модалка */}
-            <CTA/>
+            <CTA />
+
             <div className="hero__images">
                 <Image
-                    className={"hero__item"}
-                    width={380}
-                    height={500}
-                    src={"/hero_image_1.webp"}
-                    alt={"Усадьба Комарово фото"}/>
+                    className="hero__item"
+                    width={480}
+                    height={600}
+                    src="/hero_image_1.webp"
+                    alt="Усадьба Комарово фото"
+                    priority
+                    sizes="(max-width: 768px) 90vw, (max-width: 1200px) 45vw, 25vw"
+                />
                 <Image
-                    className={"hero__item"}
-                    width={380}
-                    height={500}
-                    src={"/hero_image_2.webp"}
-                    alt={"Усадьба Комарово фото"}/>
+                    className="hero__item"
+                    width={480}
+                    height={600}
+                    src="/hero_image_2.webp"
+                    alt="Усадьба Комарово фото"
+                    loading="lazy"
+                    sizes="(max-width: 768px) 90vw, (max-width: 1200px) 45vw, 25vw"
+                />
                 <Image
-                    className={"hero__item"}
-                    width={380}
-                    height={500}
-                    src={"/hero_image_3.webp"}
-                    alt={"Усадьба Комарово фото"}/>
+                    className="hero__item"
+                    width={480}
+                    height={600}
+                    src="/hero_image_3.webp"
+                    alt="Усадьба Комарово фото"
+                    loading="lazy"
+                    sizes="(max-width: 768px) 90vw, 25vw"
+                />
                 <Image
-                    className={"hero__item"}
-                    width={380}
-                    height={500}
-                    src={"/hero_image_4.webp"}
-                    alt={"Усадьба Комарово фото"}/>
+                    className="hero__item"
+                    width={480}
+                    height={600}
+                    src="/hero_image_4.webp"
+                    alt="Усадьба Комарово фото"
+                    loading="lazy"
+                    sizes="(max-width: 768px) 90vw, 25vw"
+                />
             </div>
-        </div>
+        </section>
     )
 }

@@ -4,6 +4,7 @@ import {useState} from 'react';
 import Button from '@/components/Button/Button';
 import Modal from '@/components/Modal/Modal';
 import CTA from '@/components/CTA/CTA';
+import Image from 'next/image';
 
 function ServiceCard() {
     const servicesArr = [
@@ -39,11 +40,12 @@ function ServiceCard() {
 
     return (
         <div className='services__wrapper'>
-            <div className="services container">
+            <div className="services container" role="list">
                 {servicesArr.map((service, index) => (
                     <CardItem
                         key={index}
                         service={service}
+                        index={index}
                     />
                 ))}
             </div>
@@ -51,41 +53,50 @@ function ServiceCard() {
     );
 }
 
-function CardItem({ service }) {
+function CardItem({ service, index }) {
     const [isHovered, setIsHovered] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <div
+        <article
             className={`card ${isHovered ? 'hovered' : ''}`}
-            id={'services'}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
+            role="listitem"
+            aria-labelledby={`card-title-${index}`}
         >
-            {/* Модалка */}
             <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
                 <div style={{display:'flex', flexDirection:'column', alignItems:'center', gap:'1em'}} className="modal__apl-pro">
                     <h2>{service.title}</h2>
                     <p>{service.description}</p>
                     <CTA/>
                 </div>
-
             </Modal>
 
-            <div className={`card__image ${isHovered ? 'hovered' : ''}`}>
-                <img width={'300'} height={'400'} src={service.imgLink} alt={service.alt}/>
-                <h3 className="card__title">{service.title}</h3>
+            <div className="card__media">
+                {/* приоритетную загрузку можно оставить только на первой карточке */}
+                <Image
+                    src={service.imgLink}
+                    alt={service.alt}
+                    width={900}
+                    height={600}
+                    sizes="(max-width: 768px) 90vw, (max-width: 1200px) 45vw, 300px"
+                    priority={index === 0}
+                    className="card__img"
+                />
+                <h3 id={`card-title-${index}`} className="card__title">{service.title}</h3>
             </div>
 
-            <div className={`card__content ${isHovered ? 'hovered' : ''}`}>
-                <ul className="card__list">
-                    {service.list.map((item, index) => (
-                        <li key={index}>• {item}</li>
-                    ))}
+            <div className="card__content">
+                <ul className="card__list" aria-hidden={isHovered ? "false" : "true"}>
+                    {service.list.map((item, i) => <li key={i}>• {item}</li>)}
                 </ul>
-                <Button size={'small'} onClick={() => setIsOpen(true)}>Подробнее</Button>
+
+                <div className="card__actions">
+                    <Button size={'small'} onClick={() => setIsOpen(true)}>Подробнее</Button>
+                </div>
             </div>
-        </div>
+        </article>
     );
 }
 

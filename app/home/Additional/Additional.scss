@@ -3,14 +3,6 @@
 .additional {
   padding: get-spacing(5) 0;
 
-  @include tablet {
-    padding: get-spacing(5) 0;
-  }
-
-  @include mobile {
-    padding: get-spacing(5) 0;
-  }
-
   &__wrapper {
     display: flex;
     flex-direction: column;
@@ -29,7 +21,7 @@
       }
 
       @include mobile {
-        font-size: get-font-size(text-base);
+        font-size: get-font-size(heading-sm);
         margin-bottom: get-spacing(2);
       }
     }
@@ -75,14 +67,11 @@
     &-card {
       display: flex;
       flex-direction: column;
-      align-items: center;
-      justify-content: space-between;
-      border-radius: get-border-radius(xl);
       background: get-color(background);
-      box-shadow: get-shadow(medium);
+      border-radius: get-border-radius(xl);
       overflow: hidden;
+      box-shadow: get-shadow(medium);
       transition: all 0.3s ease;
-      height: 100%;
       cursor: pointer;
 
       &:hover {
@@ -90,7 +79,8 @@
         box-shadow: get-shadow(large);
 
         @include mobile {
-          transform: translateY(-2px);
+          transform: none;
+          box-shadow: get-shadow(medium);
         }
       }
 
@@ -98,7 +88,6 @@
         width: 100%;
         height: 200px;
         object-fit: cover;
-        border-radius: get-border-radius(xl) get-border-radius(xl) 0 0;
 
         @include tablet {
           height: 180px;
@@ -112,7 +101,7 @@
       h3 {
         font-size: get-font-size(heading-sm);
         color: get-color(headings);
-        margin: get-spacing(3) 0 get-spacing(2);
+        margin: get-spacing(3) 0 get-spacing(1.5);
         text-align: center;
         padding: 0 get-spacing(2);
 
@@ -122,92 +111,71 @@
         }
 
         @include mobile {
-          font-size: 1rem;
-          margin: get-spacing(2) 0;
+          font-size: 1.5rem;
+          margin: get-spacing(2) 0 get-spacing(1);
+        }
+      }
+
+      .card__content-additional {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0 get-spacing(3) get-spacing(3);
+        gap: 0.75rem;
+
+        p {
+          font-size: get-font-size(text-base-mobile);
+          color: get-color(text-primary);
+          text-align: center;
+          margin: 0;
+          line-height: map-get($line-heights, relaxed);
+
+          @include tablet {
+            font-size: 0.9rem;
+          }
+
+          @include mobile {
+            font-size: 0.85rem;
+          }
+        }
+
+        .btn {
+          margin-top: auto;
+          width: 100%;
+          max-width: 200px;
+
+          @include mobile {
+            max-width: 180px;
+            padding: get-spacing(1.5) get-spacing(3);
+            font-size: 0.9rem;
+          }
         }
       }
     }
   }
 
-  .card__content-additional {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    height: 100%;
-    padding: 0 get-spacing(3) get-spacing(3);
-    flex-grow: 1;
-
-    p {
-      font-size: get-font-size(text-base-mobile);
-      color: get-color(text-primary);
-      text-align: left;
-      margin: get-spacing(2) 0 get-spacing(3);
-      line-height: map-get($line-heights, relaxed);
-      flex-grow: 1;
-
-      @include tablet {
-        font-size: 0.9rem;
-        margin: get-spacing(1) 0 get-spacing(2);
-      }
-
-      @include mobile {
-        font-size: 0.85rem;
-        margin: get-spacing(1) 0 get-spacing(2);
-      }
+  // Анимация появления
+  @keyframes cardAppear {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
     }
-
-    .btn {
-      margin-top: auto;
-      width: 100%;
-      max-width: 200px;
-
-      @include mobile {
-        max-width: 180px;
-        padding: get-spacing(1.5) get-spacing(3);
-        font-size: 0.9rem;
-      }
+    to {
+      opacity: 1;
+      transform: translateY(0);
     }
   }
-}
 
-// Анимация появления карточек
-@keyframes cardAppear {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+  .additional__inner-card {
+    animation: cardAppear 0.6s ease forwards;
 
-.additional__inner-card {
-  animation: cardAppear 0.6s ease forwards;
+    &:nth-child(1) { animation-delay: 0.1s; }
+    &:nth-child(2) { animation-delay: 0.2s; }
+    &:nth-child(3) { animation-delay: 0.3s; }
+    &:nth-child(4) { animation-delay: 0.4s; }
 
-  &:nth-child(1) { animation-delay: 0.1s; }
-  &:nth-child(2) { animation-delay: 0.2s; }
-  &:nth-child(3) { animation-delay: 0.3s; }
-  &:nth-child(4) { animation-delay: 0.4s; }
-
-  @include mobile {
-    animation-duration: 0.4s;
-  }
-}
-
-// Адаптивность для планшетов в альбомной ориентации
-@include tablet {
-  @include landscape {
-    .additional__inner {
-      grid-template-columns: repeat(2, 1fr);
-      gap: get-spacing(4);
-    }
-
-    .additional__inner-card {
-      img {
-        height: 170px;
-      }
+    @include mobile {
+      animation-duration: 0.4s;
     }
   }
 }
