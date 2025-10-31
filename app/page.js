@@ -8,6 +8,8 @@ import Additional from '@/app/home/Additional/Additional';
 import Application from '@/app/home/Application/Application';
 import News from '@/app/home/News/News';
 import Contacts from '@/app/home/Contacts/Contacts';
+import VideoModalSection
+    from '@/components/VideoModalSection/VideoModalSection';
 
 export default function Home() {
   return (
@@ -15,8 +17,10 @@ export default function Home() {
 
         <main>
           <Hero/>
+            <VideoModalSection/>
           <About/>
-          {/*<Rest/>*/}
+
+            {/*<Rest/>*/}
           <ServiceCard/>
           <Prices/>
           <Additional/>

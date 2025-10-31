@@ -28,8 +28,9 @@ function About() {
 
                     </div>
                 </div>
+                <h3>Почему выбирают нас?</h3>
                 <div className="about__why">
-                    <h3>Почему выбирают нас?</h3>
+
                     <div className="about__why-left">
 
                         <p>Традиции и натуральные материалы</p>

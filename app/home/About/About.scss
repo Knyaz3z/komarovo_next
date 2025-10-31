@@ -96,29 +96,37 @@
 
     // 🔹 Заголовок теперь над блоком
     h3 {
-      position: absolute;
-      top: -3em;
-      left: 0;
-      width: 100%;
-      text-align: center;
-      font-size: get-font-size(heading-md);
-      color: get-color(headings);
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeUp 0.8s ease forwards;
-      animation-delay: 0.1s;
-
-      @include tablet {
-        position: static;
-        margin-bottom: get-spacing(3);
-      }
-
-      @include mobile {
-        position: static;
-        font-size: get-font-size(heading-sm);
-        margin-bottom: get-spacing(2);
-      }
+      display: block;
     }
+
+    @include mobile {
+      h3 {
+        position: absolute;
+        top: -3em;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        font-size: get-font-size(heading-md);
+        color: get-color(headings);
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeUp 0.8s ease forwards;
+        animation-delay: 0.1s;
+
+        @include tablet {
+          position: static;
+          margin-bottom: get-spacing(3);
+        }
+
+        @include mobile {
+          position: static;
+          font-size: get-font-size(heading-sm);
+          margin-bottom: get-spacing(2);
+        }
+      }
+
+    }
+
 
     &-left {
       display: flex;

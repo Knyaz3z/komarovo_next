@@ -1,0 +1,40 @@
+
+@import '@/styles/global.scss';
+.video-section {
+  text-align: center;
+  margin: 0rem 0;
+
+  &__button {
+    background: get-color(accent-green);
+    color: get-color(text-light);
+    border: none;
+    border-radius: 8px;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  &__video-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-height: 80vh;
+    overflow: hidden;
+  }
+
+  &__video {
+    width: auto;          // чтобы не растягивалось по ширине
+    height: 80vh;         // ограничиваем высоту
+    max-width: 100%;      // не вылезало за рамки контейнера
+    border-radius: 12px;
+    object-fit: contain;  // сохраняет пропорции вертикального видео
+    background: #000;     // подложка, чтобы не было белых полей
+  }
+}
