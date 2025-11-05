@@ -27,7 +27,7 @@ function Footer() {
                     <a href="https://wa.me/375293411111" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
                         <FaWhatsapp />
                     </a>
-                    <a href="https://instagram.com/komarovo" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                    <a href="https://www.instagram.com/usadba_komarovo?igsh=MW9nbjVpYmsxcW43eA==" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                         <FaInstagram />
                     </a>
                 </div>
