@@ -28,19 +28,19 @@ function Header() {
                 <nav className={`nav ${isMenuOpen ? 'nav--open' : ''}`}>
                     <ul className="nav__list">
                         <li className="nav__item">
-                            <Link href="/" className="nav__link">Главная</Link>
+                            <Link href="/" onClick={() => setIsMenuOpen(!isMenuOpen)} className="nav__link">Главная</Link>
                         </li>
                         <li className="nav__item">
-                            <Link href="/#about" className="nav__link">О нас</Link>
+                            <Link href="/#about" onClick={() => setIsMenuOpen(!isMenuOpen)} className="nav__link">О нас</Link>
                         </li>
                         <li className="nav__item">
-                            <Link href="/#services" className="nav__link">Наши услуги</Link>
+                            <Link href="/#services" onClick={() => setIsMenuOpen(!isMenuOpen)} className="nav__link">Наши услуги</Link>
                         </li>
                         <li className="nav__item">
-                            <Link href="/News" className="nav__link">Статьи</Link>
+                            <Link href="/News" onClick={() => setIsMenuOpen(!isMenuOpen)} className="nav__link">Статьи</Link>
                         </li>
                         <li className="nav__item">
-                            <Link href="/#contacts" className="nav__link">Контакты</Link>
+                            <Link href="/#contacts" onClick={() => setIsMenuOpen(!isMenuOpen)} className="nav__link">Контакты</Link>
                         </li>
                     </ul>
                 </nav>

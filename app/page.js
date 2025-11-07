@@ -21,6 +21,7 @@ export default function Home() {
           <About/>
 
             {/*<Rest/>*/}
+            <div id={'services'}></div>
           <ServiceCard/>
           <Prices/>
           <Additional/>
