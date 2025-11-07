@@ -59,6 +59,13 @@
       opacity: 0;
       animation: fadeUp 0.8s ease forwards;
       animation-delay: 0.3s;
+      ul{
+        padding-top: .5em;
+        display: flex;
+        flex-direction: column;
+        gap: .5em;
+        text-align: left;
+      }
 
       @include mobile {
         font-size: get-font-size(text-base-mobile);

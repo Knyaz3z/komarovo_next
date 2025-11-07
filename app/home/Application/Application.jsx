@@ -25,7 +25,7 @@ function Application() {
             <div className="application__wrapper container">
                 <div className="application__content">
                     <h2>Оставьте заявку на отдых</h2>
-                    <p>Мы перезвоним вам в течение 15 минут</p>
+                    {/*<p>Мы Вам перезвоним!</p>*/}
 
                     <form className="application__form" onSubmit={handleSubmit}>
                         <div className="form__group">
@@ -66,7 +66,7 @@ function Application() {
                     </form>
 
                     <div className="application__alternative">
-                        <p>Или перезвоните нам самостоятельно:</p>
+                        <p>Или позвоните нам самостоятельно:</p>
                         <a href="tel:+375293411111" className="phone__link">
                             +375 29 341 11 11
                         </a>

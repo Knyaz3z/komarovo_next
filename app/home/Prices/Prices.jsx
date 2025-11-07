@@ -12,9 +12,9 @@ function Prices() {
         {
             id: 1,
             title: 'Русская баня на дровах',
-            imgsLink: ["/prices/1/prices_photo_4.webp", "/prices/1/prices_photo_2.webp", "/prices/1/prices_photo_3.webp", "/prices/1/prices_photo_1.webp"],
+            imgsLink: ["/prices/1/prices_photo_4.jpg", "/prices/1/prices_photo_2.webp", "/prices/1/prices_photo_3.webp", "/prices/1/prices_photo_1.webp"],
             list: [
-                'Стоимость указана для 8 человек, каждый последующий человек оплачивается отдельно',
+                'Стоимость указана до 8 человек, каждый последующий человек оплачивается дополнительно',
                 'Здесь укажем, что включено в цену',
                 'Дополнительная услуга банщика(100Br.)',
                 'пн-чт минимальное время пребывания 2 часа. пт-вс - 3 часа'
@@ -23,15 +23,29 @@ function Prices() {
         },
         {
             id: 2,
-            title: 'Беседка с мангалом',
-            imgsLink: ["/prices/2/prices_photo_1.webp", "/prices/2/prices_photo_2.webp", "/prices/2/prices_photo_3.webp", "/prices/2/prices_photo_4.webp"],
-            list: ['Предоставляются шампуры и решетка'],
+            title: 'Банкетный зал',
+            imgsLink: ["/prices/4/prices_photo_1.webp", "/prices/4/prices_photo_2.webp", "/prices/4/prices_photo_3.webp", "/prices/4/prices_photo_4.webp"],
+            list: [
+                'Проведение праздничных мероприятий, корпоративов и других знаменательных событий',
+                'Для комфортного размещения до 35 человек'
+            ],
+            price: 60,
+        },
+
+        {
+            id: 3,
+            title: 'Аренда усадьбы',
+            imgsLink: ["/prices/4/prices_photo_1.webp", "/prices/4/prices_photo_2.webp", "/prices/4/prices_photo_3.webp", "/prices/4/prices_photo_4.webp"],
+            list: [
+                'Проведение праздничных мероприятий, корпоративов и других знаменательных событий',
+                'Для комфортного размещения до 35 человек'
+            ],
             price: 60,
         },
         {
-            id: 3,
+            id: 4,
             title: 'Веранда с газовым грилем',
-            imgsLink: ["/prices/3/prices_photo_4.webp", "/prices/3/prices_photo_2.webp", "/prices/3/prices_photo_3.webp", "/prices/3/prices_photo_1.webp"],
+            imgsLink: ["/prices/3/prices_photo_4.webp", "/prices/3/prices_photo_2.webp", "/prices/3/prices_photo_3.webp", "/prices/3/prices_photo_1.jpg"],
             list: [
                 'Просторная уютная веранда на 12 человек',
                 'Аренда газового гриля',
@@ -41,8 +55,15 @@ function Prices() {
             price: 60,
         },
         {
-            id: 4,
-            title: 'Банкетный зал',
+            id: 5,
+            title: 'Беседка с мангалом',
+            imgsLink: ["/prices/2/prices_photo_1.webp", "/prices/2/prices_photo_2.webp", "/prices/2/prices_photo_3.webp", "/prices/2/prices_photo_4.webp"],
+            list: ['Предоставляются шампуры и решетка'],
+            price: 60,
+        },
+        {
+            id: 6,
+            title: 'Бассейн',
             imgsLink: ["/prices/4/prices_photo_1.webp", "/prices/4/prices_photo_2.webp", "/prices/4/prices_photo_3.webp", "/prices/4/prices_photo_4.webp"],
             list: [
                 'Проведение праздничных мероприятий, корпоративов и других знаменательных событий',
@@ -50,6 +71,7 @@ function Prices() {
             ],
             price: 60,
         },
+
     ];
 
     const [activePage, setActivePage] = useState(1);
@@ -215,7 +237,7 @@ function Prices() {
                                 <li key={index}>• {item}</li>
                             ))}
                         </ul>
-                        <p className="prices__price">{activeItem.price} Br / час</p>
+                        <p className="prices__price">от {activeItem.price} Br / час</p>
                         <div className="prices__buttons">
                             <Button onClick={() => setIsOpen(true)}>Забронировать</Button>
                             <Button onClick={() => setIsOpen(true)} variant={'secondary'}>Есть вопрос?</Button>
