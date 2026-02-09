@@ -49,67 +49,40 @@
     }
   }
 
-  &__images {
+  .hero__images {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: get-spacing(6);
-    width: 100%;
-    max-width: 1792px;
-    margin-top: get-spacing(5);
-    padding: 0 get-spacing(4);
+    padding-top: get-spacing(6);
 
-    @include tablet {
-      grid-template-columns: repeat(2, 1fr);
-      gap: get-spacing(5);
-      margin-top: get-spacing(8);
+    &.is-mobile {
+      grid-template-columns: 1fr;
     }
 
     @include mobile {
-      display: flex;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
+      grid-template-columns: 1fr;
       gap: get-spacing(3);
-      padding: 0 get-spacing(2);
-      margin-top: get-spacing(6);
-
-      &::-webkit-scrollbar {
-        display: none;
-      }
-
-      .hero__item {
-        flex: 0 0 85%;
-        height: 220px;
-        scroll-snap-align: center;
-        border-radius: get-border-radius(xl);
-        transition: transform 0.3s ease;
-      }
     }
   }
 
-  &__item {
+  .hero__item {
     width: 100%;
     height: 500px;
     object-fit: cover;
     border-radius: get-border-radius('2xl');
     box-shadow: get-shadow(medium);
-    transition: transform 0.4s ease;
-
-    &:hover {
-      transform: translateY(-8px) scale(1.02);
-      box-shadow: get-shadow(large);
-    }
+    opacity: 0;
+    animation: fadeSlide 0.6s ease forwards;
 
     @include tablet {
       height: 300px;
     }
 
     @include mobile {
-      height: 220px;
-      &:hover {
-        transform: scale(1.01);
-      }
+      height: 500px;
     }
   }
+
 }
 
 // Плавное появление изображений
@@ -153,4 +126,53 @@
     &:nth-child(4) { animation-delay: 0.2s; }
   }
 }
+
+.hero__images {
+  position: relative;
+}
+
+.hero__item {
+  opacity: 0;
+  animation: fadeSlide 0.8s ease forwards;
+}
+
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---------- DOTS ---------- */
+
+.hero__dots {
+  display: flex;
+  gap: get-spacing(2);
+  margin-top: get-spacing(4);
+  justify-content: center;
+}
+
+.hero__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.2);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &.is-active {
+    background: get-color(accent-green);
+    transform: scale(1.3);
+  }
+
+  &:hover {
+    background: get-color(accent-green);
+  }
+}
+
 

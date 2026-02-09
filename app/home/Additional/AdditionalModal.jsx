@@ -12,8 +12,8 @@ export default function AdditionalModal({ item }) {
             <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1em'}}>
                     <h2>{item.title}</h2>
-                    <p>{item.desc}</p>
-                    <Button onClick={() => setIsOpen(false)}>Закрыть</Button>
+                    <p>{item.additionalDesc}</p>
+                    <Button onClick={() => setIsOpen(false)}>Связаться</Button>
                 </div>
             </Modal>
         </>

@@ -14,22 +14,21 @@ function Prices() {
             title: 'Русская баня на дровах',
             imgsLink: ["/prices/1/prices_photo_4.jpg", "/prices/1/prices_photo_2.webp", "/prices/1/prices_photo_3.webp", "/prices/1/prices_photo_1.webp"],
             list: [
-                'Стоимость указана до 8 человек, каждый последующий человек оплачивается дополнительно',
-                'Здесь укажем, что включено в цену',
-                'Дополнительная услуга банщика(100Br.)',
-                'пн-чт минимальное время пребывания 2 часа. пт-вс - 3 часа'
+                'Стоимость указана до 8 человек',
+                'Баня, подготовка бани, оборудованная всем необходимым комната отдыха с теплым полом, открытая терраса и беседка с мангальной зоной, банные аксессуары',
+                'ПН-ЧТ мин. время пребывания 2 часа. ПТ-ВС, праздничные, предпраздничные дни - 3 часа'
             ],
-            price: 60,
+            price: 'от 60 Br./час',
         },
         {
             id: 2,
             title: 'Банкетный зал',
             imgsLink: ["/prices/4/prices_photo_1.webp", "/prices/4/prices_photo_2.webp", "/prices/4/prices_photo_3.webp", "/prices/4/prices_photo_4.webp"],
             list: [
-                'Проведение праздничных мероприятий, корпоративов и других знаменательных событий',
-                'Для комфортного размещения до 35 человек'
+                'Проведение праздничных мероприятий, корпоративов, конференций и других знаменательных событий',
+                'Для комфортного размещения до 40 человек'
             ],
-            price: 60,
+            price: 'от 440 Br.',
         },
 
         {
@@ -37,10 +36,11 @@ function Prices() {
             title: 'Аренда усадьбы',
             imgsLink: ["/prices/4/prices_photo_1.webp", "/prices/4/prices_photo_2.webp", "/prices/4/prices_photo_3.webp", "/prices/4/prices_photo_4.webp"],
             list: [
-                'Проведение праздничных мероприятий, корпоративов и других знаменательных событий',
-                'Для комфортного размещения до 35 человек'
+                'Комплексное решение для Вашего праздника',
+                'Банкетный зал, баня, беседка, бассейн, просторная территория без соседей',
+                'Для комфортного размещения до 60 человек'
             ],
-            price: 60,
+            price: 'Цена договорная',
         },
         {
             id: 4,
@@ -50,26 +50,31 @@ function Prices() {
                 'Просторная уютная веранда на 12 человек',
                 'Аренда газового гриля',
                 'Музыкальная колонка',
-                'Холодильник'
+                'Холодильник',
             ],
-            price: 60,
+            price: 'от 240 Br./час',
         },
         {
             id: 5,
             title: 'Беседка с мангалом',
             imgsLink: ["/prices/2/prices_photo_1.webp", "/prices/2/prices_photo_2.webp", "/prices/2/prices_photo_3.webp", "/prices/2/prices_photo_4.webp"],
-            list: ['Предоставляются шампуры и решетка'],
-            price: 60,
+            list: [
+                'Уютная площадка',
+                'Качели',
+                'Вода, электричество',
+                'Парковка',
+
+            ],
+            price: 'от 150 Br.',
         },
         {
             id: 6,
             title: 'Бассейн',
             imgsLink: ["/prices/4/prices_photo_1.webp", "/prices/4/prices_photo_2.webp", "/prices/4/prices_photo_3.webp", "/prices/4/prices_photo_4.webp"],
             list: [
-                'Проведение праздничных мероприятий, корпоративов и других знаменательных событий',
-                'Для комфортного размещения до 35 человек'
+                'Сезонный бассейн на территории для релакса с шезлонгами для загара',
             ],
-            price: 60,
+            price: 'от 15 Br./чел',
         },
 
     ];
@@ -237,10 +242,10 @@ function Prices() {
                                 <li key={index}>• {item}</li>
                             ))}
                         </ul>
-                        <p className="prices__price">от {activeItem.price} Br / час</p>
+                        <p className="prices__price">{activeItem.price}</p>
                         <div className="prices__buttons">
                             <Button onClick={() => setIsOpen(true)}>Забронировать</Button>
-                            <Button onClick={() => setIsOpen(true)} variant={'secondary'}>Есть вопрос?</Button>
+                            <Button onClick={() => setIsOpen(true)} variant={'secondary'}>Доп. услуги</Button>
                         </div>
                     </div>
                 </div>

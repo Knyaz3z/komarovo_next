@@ -14,10 +14,11 @@ function Application() {
     }
 
     const socialLinks = [
+        { name: 'Instagram', icon: '📷', link: 'https://instagram.com/username' },
         { name: 'Viber', icon: '📞', link: 'viber://chat?number=375293411111' },
         { name: 'Telegram', icon: '✈️', link: 'https://t.me/username' },
         { name: 'WhatsApp', icon: '💬', link: 'https://wa.me/375293411111' },
-        { name: 'Instagram', icon: '📷', link: 'https://instagram.com/username' }
+        { name: 'FaceBook', icon: '💬', link: 'https://www.facebook.com/share/1KHJsF856J/' },
     ]
 
     return (
