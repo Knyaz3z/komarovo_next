@@ -1,6 +1,6 @@
 import './About.scss'
 import Image from 'next/image';
-
+import AboutWhy from './AboutWhy'
 function About() {
 
     return (
@@ -49,22 +49,8 @@ function About() {
                     </div>
                 </div>
                 <h3>Почему выбирают нас?</h3>
-                <div className="about__why">
+                    <AboutWhy/>
 
-                    <div className="about__why-left">
-
-                        <p>Традиции и натуральные материалы</p>
-                        <p>Индивидуальный подход к каждому гостю</p>
-                        <p>Безупречная чистота</p>
-                        <p>Умиротворяющая природа</p>
-                    </div>
-                    <Image
-                        width={628}
-                        height={510}
-                        src={"/about_photo_2.webp"}
-                        alt={"Фото усадьбы Комарово"}/>
-
-                </div>
             </div>
         </div>
     )

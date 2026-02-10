@@ -37,11 +37,12 @@
     -webkit-overflow-scrolling: touch;
     padding-bottom: 0.5em;
 
+
     // псевдоэлементы создают отступы, чтобы табы не обрезались
     &::before,
     &::after {
       content: '';
-      flex: 0 0 .5em;
+      flex: 0 0 1em;
     }
 
     &::-webkit-scrollbar {
@@ -58,6 +59,7 @@
       font-size: 0.95rem;
       cursor: pointer;
       transition: all 0.3s ease;
+      transform: translateX(-00px);
 
       &:hover {
         border-color: get-color(accent-orange);
@@ -70,6 +72,31 @@
         border-color: get-color(accent-green);
       }
     }
+  }
+
+  .prices__buttons-tab {
+    position: absolute;
+    top: 0;
+    background-color: get-color(accent-orange);
+    padding: .5em;
+    border-radius: 100px;
+    color: get-color(text-light);
+    transition: all .3s ease;
+
+    &:hover {
+      -webkit-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+      -moz-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+      box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+      transform: scale(1.05);
+    }
+  }
+
+  .prices__buttons-tab--prev {
+    left: .5em;
+  }
+
+  .prices__buttons-tab--next {
+    right: .5em;
   }
 
 

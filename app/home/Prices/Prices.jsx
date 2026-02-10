@@ -184,15 +184,31 @@ function Prices() {
             <div className="prices__wrapper container">
 
                 <div className="prices__tabs">
-                    {pricesArr.map(item => (
-                        <button
-                            key={item.id}
-                            onClick={() => { setActivePage(item.id); setActiveImage(0); }}
-                            className={`prices__tab ${activePage === item.id ? 'active' : ''}`}
-                        >
-                            {item.title}
+                    <div className="prices__tabs-wrapper">
+                        <button className="prices__buttons-tab prices__buttons-tab--prev">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
                         </button>
-                    ))}
+
+                        <div className="prices__tabs">
+                            {pricesArr.map(item => (
+                                <button
+                                    key={item.id}
+                                    onClick={() => { setActivePage(item.id); setActiveImage(0); }}
+                                    className={`prices__tab ${activePage === item.id ? 'active' : ''}`}
+                                >
+                                    {item.title}
+                                </button>
+                            ))}
+                        </div>
+
+                        <button className="prices__buttons-tab prices__buttons-tab--next">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                    </div>
                 </div>
 
                 <div className="prices__content">
