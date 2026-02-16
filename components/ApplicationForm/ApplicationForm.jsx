@@ -7,6 +7,8 @@ export default function ApplicationForm({ onSuccess }) {
     const [phone, setPhone] = useState('');
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
+    const [agree, setAgree] = useState(false);
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -44,6 +46,7 @@ export default function ApplicationForm({ onSuccess }) {
                 onChange={(e) => setName(e.target.value)}
                 required
             />
+
             <input
                 type="tel"
                 placeholder="Телефон"
@@ -51,10 +54,29 @@ export default function ApplicationForm({ onSuccess }) {
                 onChange={(e) => setPhone(e.target.value)}
                 required
             />
-            <button type="submit" disabled={loading}>
+
+            <label className="application-form__checkbox">
+                <input
+                    type="checkbox"
+                    checked={agree}
+                    onChange={(e) => setAgree(e.target.checked)}
+                    required
+                />
+                <span className="application-form__checkmark"></span>
+                <span>
+            Я согласен с{' '}
+                    <a href="#" target="_blank" rel="noopener noreferrer">
+                обработкой персональных данных
+            </a>
+        </span>
+            </label>
+
+            <button type="submit" disabled={loading || !agree}>
                 {loading ? 'Отправка...' : 'Отправить'}
             </button>
+
             {error && <p className="application-form__error">{error}</p>}
         </form>
+
     );
 }

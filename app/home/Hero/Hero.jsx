@@ -1,13 +1,15 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import {useEffect, useState} from 'react'
 import './Hero.scss'
-import CTA from "@/components/CTA/CTA"
-import Image from "next/image"
+import CTA from '@/components/CTA/CTA'
+import Image from 'next/image'
 
 const IMAGES = Array.from({ length: 12 }, (_, i) => `/heroImages/hero_image_${i + 1}.webp`)
 
 export default function Hero() {
+
+
     const [page, setPage] = useState(0)
     const [isMobile, setIsMobile] = useState(false)
 

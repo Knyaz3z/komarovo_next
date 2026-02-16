@@ -25,79 +25,82 @@
   }
 
   /* Табы (кнопки выбора услуги) */
-  .prices__tabs {
+  .prices__tabs-block {
+    position: relative;
     display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
+    align-items: center;
+    margin-bottom: 2em;
+  }
+
+  .prices__tabs-viewport {
+    overflow: hidden;
+    flex: 1;
+    position: relative;
+  }
+
+  .prices__tabs-list {
+    display: flex;
     gap: 1em;
-    justify-content: flex-start;
-    margin-bottom: 1em;
-    scroll-snap-type: x mandatory;
+    overflow-x: auto;
     scroll-behavior: smooth;
+    padding: 0 3em; // место под стрелки
+
     -webkit-overflow-scrolling: touch;
-    padding-bottom: 0.5em;
-
-
-    // псевдоэлементы создают отступы, чтобы табы не обрезались
-    &::before,
-    &::after {
-      content: '';
-      flex: 0 0 1em;
-    }
 
     &::-webkit-scrollbar {
       display: none;
     }
-
-    .prices__tab {
-      flex: 0 0 auto;
-      scroll-snap-align: center;
-
-      padding: 0.8em 1.5em;
-      border-radius: 30px;
-      background: get-color(text-light);
-      font-size: 0.95rem;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      transform: translateX(-00px);
-
-      &:hover {
-        border-color: get-color(accent-orange);
-        color: get-color(accent-orange);
-      }
-
-      &.active {
-        background: get-color(accent-orange);
-        color: get-color(text-light);
-        border-color: get-color(accent-green);
-      }
-    }
   }
 
-  .prices__buttons-tab {
-    position: absolute;
-    top: 0;
-    background-color: get-color(accent-orange);
-    padding: .5em;
-    border-radius: 100px;
-    color: get-color(text-light);
-    transition: all .3s ease;
+  .prices__tab {
+    flex: 0 0 auto;
+    padding: 0.8em 1.6em;
+    border-radius: 50px;
+    background: #fff;
+    font-size: 0.95rem;
+    white-space: nowrap;
+    transition: all 0.25s ease;
+    cursor: pointer;
 
     &:hover {
-      -webkit-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
-      -moz-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
-      box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
-      transform: scale(1.05);
+      transform: translateY(-2px);
+    }
+
+    &.active {
+      background: #FFA500;
+      color: #fff;
     }
   }
 
-  .prices__buttons-tab--prev {
-    left: .5em;
+  .prices__arrow {
+    position: absolute;
+    z-index: 5;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #FFA500;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: all 0.25s ease;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    &--prev {
+      left: -50px;
+    }
+
+    &--next {
+      right: -50px;
+    }
   }
 
-  .prices__buttons-tab--next {
-    right: .5em;
-  }
 
 
   /* Контент (галерея + инфо) */
@@ -480,3 +483,4 @@
     z-index: 10;
   }
 }
+

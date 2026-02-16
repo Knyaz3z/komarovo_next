@@ -10,12 +10,14 @@ import News from '@/app/home/News/News';
 import Contacts from '@/app/home/Contacts/Contacts';
 import VideoModalSection
     from '@/components/VideoModalSection/VideoModalSection';
+import PhoneNumber from '@/components/phoneNumber/PhoneNumber';
 
 export default function Home() {
   return (
       <>
 
         <main>
+            {/*<PhoneNumber/>*/}
           <Hero/>
             <VideoModalSection/>
           <About/>

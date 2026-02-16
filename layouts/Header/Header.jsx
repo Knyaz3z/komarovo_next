@@ -22,40 +22,48 @@ function Header() {
 
     return (
         <>
-            <header className='header'>
-                <Link href="/"><img src='/main_logo.svg' alt="Логотип" className="header__logo"/></Link>
+            <header className="header">
+                <Link href="/">
+                    <img src="/main_logo.svg" alt="Логотип" className="header__logo" />
+                </Link>
 
                 <nav className={`nav ${isMenuOpen ? 'nav--open' : ''}`}>
                     <ul className="nav__list">
                         <li className="nav__item">
-                            <Link href="/" onClick={() => setIsMenuOpen(!isMenuOpen)} className="nav__link">Главная</Link>
+                            <Link href="/" onClick={() => setIsMenuOpen(false)} className="nav__link">Главная</Link>
                         </li>
                         <li className="nav__item">
-                            <Link href="/#about" onClick={() => setIsMenuOpen(!isMenuOpen)} className="nav__link">О нас</Link>
+                            <Link href="/#about" onClick={() => setIsMenuOpen(false)} className="nav__link">О нас</Link>
                         </li>
                         <li className="nav__item">
-                            <Link href="/#services" onClick={() => setIsMenuOpen(!isMenuOpen)} className="nav__link">Наши услуги</Link>
+                            <Link href="/#services" onClick={() => setIsMenuOpen(false)} className="nav__link">Наши услуги</Link>
                         </li>
                         <li className="nav__item">
-                            <Link href="/News" onClick={() => setIsMenuOpen(!isMenuOpen)} className="nav__link">Статьи</Link>
+                            <Link href="/News" onClick={() => setIsMenuOpen(false)} className="nav__link">Статьи</Link>
                         </li>
                         <li className="nav__item">
-                            <Link href="/#contacts" onClick={() => setIsMenuOpen(!isMenuOpen)} className="nav__link">Контакты</Link>
+                            <Link href="/#contacts" onClick={() => setIsMenuOpen(false)} className="nav__link">Контакты</Link>
                         </li>
                     </ul>
                 </nav>
 
-                {/* Кнопка бургер-меню для мобильных */}
-                <button
-                    className={`burger ${isMenuOpen ? 'burger--open' : ''}`}
-                    onClick={() => setIsMenuOpen(!isMenuOpen)}
-                    aria-label="Открыть меню"
-                >
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
+                <div className="header__right">
+                    <a href="tel:+375293411111" className="phone">
+                        +375 29 341 11 11
+                    </a>
+
+                    <button
+                        className={`burger ${isMenuOpen ? 'burger--open' : ''}`}
+                        onClick={() => setIsMenuOpen(!isMenuOpen)}
+                        aria-label="Открыть меню"
+                    >
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
             </header>
+
             <div
                 className={`menu-overlay ${isMenuOpen ? 'menu-overlay--visible' : ''}`}
                 onClick={() => setIsMenuOpen(false)}

@@ -1,10 +1,11 @@
 'use client';
 import './Prices.scss'
-import {useEffect, useState} from 'react';
+import {useEffect, useRef, useState} from 'react';
 import Button from '@/components/Button/Button';
 import Modal from '@/components/Modal/Modal';
 import ApplicationForm from '@/components/ApplicationForm/ApplicationForm';
 import Image from 'next/image';
+import Tabs from '@/components/Tabs/Tabs';
 
 function Prices() {
 
@@ -78,7 +79,7 @@ function Prices() {
         },
 
     ];
-
+    const tabsRef = useRef(null);
     const [activePage, setActivePage] = useState(1);
     const [activeImage, setActiveImage] = useState(0);
     const [isFullscreen, setIsFullscreen] = useState(false);
@@ -87,6 +88,28 @@ function Prices() {
 
     const [isOpen, setIsOpen] = useState(false);
     const [success, setSuccess] = useState(false);
+
+    const scrollTabs = (direction) => {
+        if (!tabsRef.current) return;
+
+        const container = tabsRef.current;
+        const scrollAmount = container.offsetWidth * 0.7;
+
+        container.scrollBy({
+            left: direction === 'next' ? scrollAmount : -scrollAmount,
+            behavior: 'smooth'
+        });
+    };
+
+    useEffect(() => {
+        const activeButton = tabsRef.current?.querySelector('.active');
+        activeButton?.scrollIntoView({
+            behavior: 'smooth',
+            inline: 'center',
+            block: 'nearest'
+        });
+    }, [activePage]);
+
 
     // Функции для навигации по изображениям
     const nextImage = () => {
@@ -183,33 +206,15 @@ function Prices() {
 
             <div className="prices__wrapper container">
 
-                <div className="prices__tabs">
-                    <div className="prices__tabs-wrapper">
-                        <button className="prices__buttons-tab prices__buttons-tab--prev">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </button>
+                <Tabs
+                    items={pricesArr}
+                    activeId={activePage}
+                    onChange={(id) => {
+                        setActivePage(id);
+                        setActiveImage(0);
+                    }}
+                />
 
-                        <div className="prices__tabs">
-                            {pricesArr.map(item => (
-                                <button
-                                    key={item.id}
-                                    onClick={() => { setActivePage(item.id); setActiveImage(0); }}
-                                    className={`prices__tab ${activePage === item.id ? 'active' : ''}`}
-                                >
-                                    {item.title}
-                                </button>
-                            ))}
-                        </div>
-
-                        <button className="prices__buttons-tab prices__buttons-tab--next">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </button>
-                    </div>
-                </div>
 
                 <div className="prices__content">
                     <div className="prices__gallery">
